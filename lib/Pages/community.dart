@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Community extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        "Community",
-      style: TextStyle(fontWeight: FontWeight.w900, fontSize: 28),
+        "Communities",
+        style: TextStyle(fontWeight: FontWeight.w900, fontSize: 28),
       ),
     );
   }

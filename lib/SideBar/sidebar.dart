@@ -67,7 +67,38 @@ class _SidebarState extends State<SideBar>
 
           child: Row(
             children: <Widget>[
-              Expanded(child: Container(color: Color(0xFF262AAA))),
+              Expanded(
+                child: Container(
+                  color: Color.fromARGB(255, 133, 36, 135),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 100),
+                      ListTile(
+                        title: Text(
+                          "Raphile",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        subtitle: Text(
+                          "raphael@gmail.com",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+
+                        // subtitle: Text(
+                        // "MamaCare",
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
               Align(
                 alignment: Alignment(0, -0.9),
                 child: GestureDetector(
@@ -77,12 +108,12 @@ class _SidebarState extends State<SideBar>
                   child: Container(
                     width: 35,
                     height: 110,
-                    color: Color(0xFF262AAA),
+                    color: Color.fromARGB(255, 133, 36, 135),
                     alignment: Alignment.centerLeft,
                     child: AnimatedIcon(
                       progress: _animationController.view,
                       icon: AnimatedIcons.menu_close,
-                      color: Color(0xFF1BB5FD),
+                      color: Color.fromARGB(255, 253, 254, 254),
                       size: 25,
                     ),
                   ),
