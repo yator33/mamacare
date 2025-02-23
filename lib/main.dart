@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'SideBar/SideBarLayout.dart';
 
-void main () => runApp(MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        primaryColor: Colors.white
+        primaryColor: Colors.white,
       ),
       home: SideBarLayout(),
     );

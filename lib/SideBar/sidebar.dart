@@ -14,7 +14,7 @@ class _SidebarState extends State<SideBar>
   late StreamController<bool> isSidebarOpenedStreamController;
   late Stream<bool> isSidebarOpenedStream;
   late StreamSink<bool> isSidebarOpenedSink;
-  final bool isSidebarOpened = true;
+  // final bool isSidebarOpened = true;
   final _animationDuration = const Duration(milliseconds: 500);
 
   @override
@@ -40,44 +40,58 @@ class _SidebarState extends State<SideBar>
   void onIconPressed() {
     final animationStatus = _animationController.status;
     final isAnimationCompleted = animationStatus == AnimationStatus.completed;
+
+    if (isAnimationCompleted) {
+      isSidebarOpenedSink.add(false);
+      _animationController.reverse();
+    } else {
+      isSidebarOpenedSink.add(true);
+      _animationController.forward();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
-    return AnimatedPositioned(
-      duration: _animationDuration,
-      top: 0,
-      bottom: 0,
-      left: isSidebarOpened ? 0 : 0,
-      right: isSidebarOpened ? 0 : screenWidth - 45,
+    return StreamBuilder<bool>(
+      initialData: false,
+      stream: isSidebarOpenedStream,
+      builder: (context, isSidebarOpenedAsync) {
+        return AnimatedPositioned(
+          duration: _animationDuration,
+          top: 0,
+          bottom: 0,
+          left: isSidebarOpenedAsync.data! ? 0 : 0,
+          right: isSidebarOpenedAsync.data! ? 0 : screenWidth - 45,
 
-      child: Row(
-        children: <Widget>[
-          Expanded(child: Container(color: Color(0xFF262AAA))),
-          Align(
-            alignment: Alignment(0, -0.9),
-            child: GestureDetector(
-              onTap: () {
-                onIconPressed();
-              },
-              child: Container(
-                width: 35,
-                height: 110,
-                color: Color(0xFF262AAA),
-                alignment: Alignment.centerLeft,
-                child: AnimatedIcon(
-                  progress: _animationController.view,
-                  icon: AnimatedIcons.menu_close,
-                  color: Color(0xFF1BB5FD),
-                  size: 25,
+          child: Row(
+            children: <Widget>[
+              Expanded(child: Container(color: Color(0xFF262AAA))),
+              Align(
+                alignment: Alignment(0, -0.9),
+                child: GestureDetector(
+                  onTap: () {
+                    onIconPressed();
+                  },
+                  child: Container(
+                    width: 35,
+                    height: 110,
+                    color: Color(0xFF262AAA),
+                    alignment: Alignment.centerLeft,
+                    child: AnimatedIcon(
+                      progress: _animationController.view,
+                      icon: AnimatedIcons.menu_close,
+                      color: Color(0xFF1BB5FD),
+                      size: 25,
+                    ),
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
