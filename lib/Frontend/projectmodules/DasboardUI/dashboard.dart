@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 // import 'dashboard.dart';
-import '../chatbot.dart';
-import '../community.dart';
-import '../emergency.dart';
-import '../maps.dart';
-import '../settings.dart';
+import '../Chatbot/chatbot.dart';
+import '../Community/community.dart';
+import '../Emergency/emergency.dart';
+import '../Maps/maps.dart';
+import '../Settings/settings.dart';
 
 class Dashboard extends StatelessWidget {
   @override

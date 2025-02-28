@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'SideBar/SideBarLayout.dart';
-import 'Pages/DasboardUI/dashboard.dart';
+import 'Frontend/Header&SideBar/SideBarLayout.dart';
+import 'Frontend/projectmodules/DasboardUI/dashboard.dart';
 
 void main() => runApp(MyApp());
 

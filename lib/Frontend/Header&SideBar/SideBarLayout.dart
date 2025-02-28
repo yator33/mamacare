@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Pages/DasboardUI/dashboard.dart';
+import '../projectmodules/DasboardUI/dashboard.dart';
 import 'sidebar.dart';
 
 class SideBarLayout extends StatelessWidget {
